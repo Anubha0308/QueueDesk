@@ -42,7 +42,10 @@ public class Ticket {
         return this.requester;
     }
     public String getStatus(){
-        return this.status;
+        return this.status.name();
+    }
+    public String getPriority(){
+        return this.priority.name();
     }
 
     public void setDescription(String description){
