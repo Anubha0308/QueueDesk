@@ -3,7 +3,7 @@ package queuedesk;
 import java.time.Duration;
 import java.time.LocalDateTime;
 
-public class Ticket {
+public abstract class Ticket {
 
     private static int nextId;
     private int id;
@@ -12,22 +12,27 @@ public class Ticket {
     private int requester;
     private Status status;
     private Priority priority;
-    LocalDateTime createdAt;
+    private LocalDateTime createdAt;
     {
         nextId=0;
     }
-    Ticket(String title,String description,String priority,int requester){
+    Ticket(String title,String description,String p,int requester){
         nextId+=1;
+        this.id=nextId;
         this.title=title;
         this.description=description;
-        this.priority=Priority.valueOf(priority.trim().toUpperCase());;
+        this.priority=Priority.valueOf(p.trim().toUpperCase());;
         this.requester=requester;
         this.createdAt=LocalDateTime.now();
     }
+    Ticket(){
 
+    }
     Ticket(String title,int requester){
         this(title,"Description","LOW",requester);
     }
+
+    public abstract double estimateEffortHours();
 
     public int getID(){
         return this.id;
