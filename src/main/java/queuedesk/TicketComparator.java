@@ -2,11 +2,16 @@ package queuedesk;
 
 import java.util.Comparator;
 
-public class TicketComparator {
-
-   Comparator<Ticket> ticketComparatorFirst = Comparator.comparing(Ticket:: getPriority).reversed()
+public class TicketComparator {//understand these comparator and how they relate to Comparator interface
+   //like jaise hum implement karte hai Comparator Interface
+   //but how to use these comparators in code
+   //this ticketComparatorFirst is the object of the Comparator interface
+   Comparator<Ticket> ticketComparatorFirst = Comparator.comparing(Ticket:: getPriorityOrdinal).reversed()
            .thenComparing(Ticket:: getCreatedAt);
 
-   Comparator<Ticket> ticketComparatorSecond = Comparator.comparing(Ticket:: getStatus)
-           .thenComparing(Ticket:: ageInHours).reversed();
+   Comparator<Ticket> ticketComparator =
+           Comparator.comparing(Ticket::getStatus)
+                   .thenComparing(
+                           Comparator.comparingLong(Ticket::ageInHours).reversed()
+                   );
 }
