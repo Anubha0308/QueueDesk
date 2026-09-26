@@ -57,6 +57,10 @@ public abstract class Ticket implements Comparable<Ticket>{
     public String getPriority(){
         return this.priority.name();
     }
+    public int getPriorityOrdinal() {return this.priority.ordinal();}
+    public int getStatusOrdinal() {
+        return this.status.ordinal();
+    }
     public String getAssignee() {
         return this.assignee.orElse("Unassigned");
     }
