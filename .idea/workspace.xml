@@ -9,6 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3d0137b0-4277-430d-954b-b69e82b54132" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/queuedesk/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/queuedesk/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/queuedesk/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/queuedesk/Ticket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/queuedesk/TicketComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/queuedesk/TicketComparator.java" afterDir="false" />
     </list>

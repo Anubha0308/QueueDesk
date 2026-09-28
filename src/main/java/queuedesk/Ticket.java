@@ -99,7 +99,7 @@ public abstract class Ticket implements Comparable<Ticket>{
     }
 
     @Override
-    public int compareTo(Ticket o) {
+    public int compareTo(Ticket o) {//NATURAL ORDERING OF TICKET OBJECTS-this is automatically used by PrioirtyQueue when no explicit is given
         if(this.priority.ordinal()!=o.priority.ordinal()) {
             return Integer.compare(o.priority.ordinal(), this.priority.ordinal());
         }
