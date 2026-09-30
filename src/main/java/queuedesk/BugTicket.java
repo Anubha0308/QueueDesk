@@ -6,7 +6,8 @@ public class BugTicket extends Ticket implements  Escalatable{
     private Severity severity;
     private String stepsToReproduce;
 
-    BugTicket(String s,String stepsToReproduce){
+    public BugTicket(String title,String description,String p,String requester,String s,String stepsToReproduce){
+        super(title,description,p,requester);
         this.stepsToReproduce=stepsToReproduce;
         this.severity=Severity.valueOf(s);
     }

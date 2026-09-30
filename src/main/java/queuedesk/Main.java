@@ -45,6 +45,9 @@ public class Main {
         simulatorResult result = queueNumberSimulator(initialTicketNumber,numberOfCustomers);
         result.printResult();
 
+        //all the three classes extend the ticket class and
+        //bugticket and accessRequestTicket implements escalatable also
+        
         return;
     }
 }

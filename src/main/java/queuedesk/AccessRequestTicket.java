@@ -2,7 +2,13 @@ package queuedesk;
 
 public class AccessRequestTicket extends Ticket implements  Escalatable{
     String systemName;
-    int accessLevel;
+    AccessLevel accessLevel;
+
+    public AccessRequestTicket(String title,String description,String p,String requester,String systemName,String a){
+        super(title,description,p,requester);
+        this.systemName=systemName;
+        this.accessLevel=AccessLevel.valueOf(a);
+    }
 
     @Override
     public double estimateEffortHours() {
