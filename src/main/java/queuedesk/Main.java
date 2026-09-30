@@ -1,4 +1,5 @@
 package queuedesk;
+import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 import java.util.PriorityQueue;
@@ -47,7 +48,20 @@ public class Main {
 
         //all the three classes extend the ticket class and
         //bugticket and accessRequestTicket implements escalatable also
-        
+        String path="src/main/java/queuedesk/tickets.txt";
+        try{
+            List<Ticket> tickets = TicketFileLoader.load(path);
+            for(Ticket ticket:tickets){
+                System.out.println(ticket.getTitle());
+                System.out.println(ticket.getDescription());
+                System.out.println(ticket.getPriority());
+                System.out.println(ticket.getRequester());
+                System.out.println(ticket.estimateEffortHours());
+            }
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
         return;
     }
 }
