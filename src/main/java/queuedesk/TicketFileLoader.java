@@ -1,31 +1,44 @@
 package queuedesk;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.UncheckedIOException;
 import  java.io.BufferedReader;
 import  java.util.ArrayList;
 import java.util.List;
 
 
 public class TicketFileLoader {
-    public static List<Ticket> load(String path){
+    public static List<Ticket> load(String path) throws InvalidTicketDataException {
         List<Ticket> tickets = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(path))) {
             String line;
             int lineNumber=1;
             while ((line = reader.readLine()) != null) {
-                String[] parts = line.split("\\|");
-                if (parts.length < 5) {
-                    throw new InvalidTicketDataException("Invalid ticket data: " +line + "on line "+ lineNumber);
+                String[] parts = line.split("\\|", -1);//-1 keeps the trailing empty strings in parts array
+                if (parts.length != 7) {
+                    throw new InvalidTicketDataException(
+                            "Invalid ticket data on line " + lineNumber + ": " + line);
                 }
-                String type=parts[0].trim();
+                for (int i = 0; i < parts.length; i++) {
+                    parts[i] = parts[i].trim();
+                }
+
+                String type=parts[0];
                 if(type.equals("BUG")) {
-                    //check if the data types of fields provided are compatible
+                    try {
+                        Priority.valueOf(parts[3].toUpperCase());//this will throw Exception if not matches with already defined ones
+                        Severity.valueOf(parts[5].toUpperCase());
 
-                    for (int i = 1; i < parts.length; i++) {
-                        String fieldValue = parts[i];
-                        //see the tickets.txt file is text file means it only contains character i.e everything is string
-                        //so we need to check if datatype compatible
-
+                        tickets.add(new BugTicket(
+                                parts[1],
+                                parts[2],
+                                parts[3].toUpperCase(),
+                                parts[4],
+                                parts[5].toUpperCase(),
+                                parts[6]));
+                    } catch (IllegalArgumentException e) {
+                        throw new InvalidTicketDataException(
+                                "Invalid BUG ticket data on line " + lineNumber + ": " + e.getMessage());
                     }
                 }
                 else if(type.equals("ACCESS_REQUEST")){
@@ -41,11 +54,8 @@ public class TicketFileLoader {
             }
         }
         catch (IOException e) {
-            e.printStackTrace();
+            throw new UncheckedIOException("Unable to read ticket file: " + path, e);
         }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
+        return tickets;
     }
 }
