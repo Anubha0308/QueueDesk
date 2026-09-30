@@ -1,0 +1,4 @@
+BUG | firstbugticket | this is first bug ticket | anubha sharma | LOW | these are the steps to reproduce the bug
+FEATURE_REQUEST | firstfeaturerequest | this is first feature request | anubha sharma | 5 | this is the business justification for this particular feature
+ACCESS_REQUEST | firstaccessrequest | this is first access request | anubha sharma | this is system name | USER
+

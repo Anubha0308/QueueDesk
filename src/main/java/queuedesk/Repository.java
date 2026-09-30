@@ -10,13 +10,15 @@ public class Repository<T extends Ticket> {
         List<T> newList = new ArrayList<T>(list);
         return newList;
     }
-    public T getById(int id){
-        for(T item:list){
-            if(item.getID()==id){
+
+    //now wherever we are calling this method we need to catch this exception in catch block there
+    public T FindById(int id) throws TicketNotFoundException{
+        for(T item:list) {
+            if (item.getID() == id) {
                 return item;
             }
         }
-        return null;
+        throw new TicketNotFoundException("Ticket with ID " + id + " not found.");
     }
     public Map<String, List<T>> groupByAssignee(){
         Map<String, List<T>> map = new HashMap<>();

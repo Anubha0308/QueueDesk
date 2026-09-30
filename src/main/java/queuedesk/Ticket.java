@@ -11,7 +11,7 @@ public abstract class Ticket implements Comparable<Ticket>{
     private int id;
     private String description;
     private String title;
-    private int requester;
+    private String requester;
     private Status status;
     private Priority priority;
     private LocalDateTime createdAt;
@@ -21,7 +21,7 @@ public abstract class Ticket implements Comparable<Ticket>{
     {
         nextId=0;
     }
-    Ticket(String title,String description,String p,int requester){
+    public Ticket(String title,String description,String p,String requester){
         nextId+=1;
         this.id=nextId;
         this.title=title;
@@ -30,10 +30,10 @@ public abstract class Ticket implements Comparable<Ticket>{
         this.requester=requester;
         this.createdAt=LocalDateTime.now();
     }
-    Ticket(){
+    public Ticket(){
 
     }
-    Ticket(String title,int requester){
+    public Ticket(String title,String requester){
         this(title,"Description","LOW",requester);
     }
 
@@ -48,7 +48,7 @@ public abstract class Ticket implements Comparable<Ticket>{
     public String getTitle(){
         return this.title;
     }
-    public int getRequester(){
+    public String getRequester(){
         return this.requester;
     }
     public String getStatus(){
