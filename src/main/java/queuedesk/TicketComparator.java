@@ -1,5 +1,7 @@
 package queuedesk;
 
+import queuedesk.TicketManager.Ticket;
+
 import java.util.Comparator;
 
 public class TicketComparator {//understand these comparator and how they relate to Comparator interface

@@ -1,4 +1,7 @@
 package queuedesk;
+import queuedesk.TicketManager.BugTicket;
+import queuedesk.TicketManager.Ticket;
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.UncheckedIOException;

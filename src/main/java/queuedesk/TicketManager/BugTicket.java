@@ -1,7 +1,10 @@
-package queuedesk;
+package queuedesk.TicketManager;
+import queuedesk.Escalatable;
+import queuedesk.Severity;
+
 import java.util.List;
 
-public class BugTicket extends Ticket implements  Escalatable{
+public class BugTicket extends Ticket implements Escalatable {
 
     private Severity severity;
     private String stepsToReproduce;

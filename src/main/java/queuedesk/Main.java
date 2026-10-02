@@ -1,8 +1,8 @@
 package queuedesk;
+import queuedesk.TicketManager.Ticket;
+
 import java.util.List;
-import java.util.PriorityQueue;
 import java.util.Scanner;
-import java.util.PriorityQueue;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
