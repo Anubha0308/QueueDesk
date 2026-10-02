@@ -1,6 +1,5 @@
 package queuedesk.TicketManager;
 import queuedesk.Escalatable;
-import queuedesk.Severity;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package queuedesk;
+package queuedesk.TicketManager;
 
 public enum Status {
     OPEN,

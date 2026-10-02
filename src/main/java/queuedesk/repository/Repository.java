@@ -1,5 +1,7 @@
-package queuedesk;
+package queuedesk.repository;
+import queuedesk.TicketComparator;
 import queuedesk.TicketManager.Ticket;
+import queuedesk.expectionPackage.TicketNotFoundException;
 
 import java.util.*;
 
@@ -14,7 +16,7 @@ public class Repository<T extends Ticket> {
     }
 
     //now wherever we are calling this method we need to catch this exception in catch block there
-    public T FindById(int id) throws TicketNotFoundException{
+    public T FindById(int id) throws TicketNotFoundException {
         for(T item:list) {
             if (item.getID() == id) {
                 return item;
