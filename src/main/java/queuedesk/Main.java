@@ -1,5 +1,6 @@
 package queuedesk;
 import queuedesk.TicketManager.Ticket;
+import queuedesk.repository.TicketFileLoader;
 
 import java.util.List;
 import java.util.Scanner;

@@ -1,8 +1,5 @@
 package queuedesk.TicketManager;
 
-import queuedesk.Priority;
-import queuedesk.Status;
-
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.Optional;
@@ -15,7 +12,7 @@ public abstract class Ticket implements Comparable<Ticket>{
     private String description;
     private String title;
     private String requester;
-    private Status status;
+    private Status status=Status.OPEN;//sabko ye value mil jayegi
     private Priority priority;
     private LocalDateTime createdAt;
     private Optional<String> assignee=null;
@@ -90,7 +87,7 @@ public abstract class Ticket implements Comparable<Ticket>{
         this.tags=Set.of(tags.toArray(new String[0]));
     }
 
-    long ageInHours(){
+    public long ageInHours(){
         LocalDateTime currentTime= LocalDateTime.now();
         Duration duration= Duration.between(this.createdAt,currentTime);
         long hours=duration.toHours();
