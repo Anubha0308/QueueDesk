@@ -1,6 +1,6 @@
-package queuedesk;
+package queuedesk.TicketManager;
 
-public class FeatureRequestTicket extends Ticket{
+public class FeatureRequestTicket extends Ticket {
     int votes;
     String businessJustification;
 

@@ -1,4 +1,6 @@
 package queuedesk;
+import queuedesk.TicketManager.Ticket;
+
 import java.util.*;
 
 public class Repository<T extends Ticket> {

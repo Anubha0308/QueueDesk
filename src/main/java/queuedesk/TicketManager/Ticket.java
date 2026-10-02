@@ -1,4 +1,7 @@
-package queuedesk;
+package queuedesk.TicketManager;
+
+import queuedesk.Priority;
+import queuedesk.Status;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
