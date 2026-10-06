@@ -1,4 +1,4 @@
-package queuedesk;
+package queuedesk.repository;
 
 import queuedesk.TicketManager.Ticket;
 
@@ -12,7 +12,7 @@ public class TicketComparator {//understand these comparator and how they relate
            .thenComparing(Ticket:: getCreatedAt);
 
    public static final Comparator<Ticket> ticketComparator =
-           Comparator.comparing(Ticket::getStatus)
+           Comparator.comparing(Ticket::getStatusOrdinal)
                    .thenComparing(
                            Comparator.comparingLong(Ticket::ageInHours).reversed()
                    );

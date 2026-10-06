@@ -14,4 +14,13 @@ public class FeatureRequestTicket extends Ticket {
     public double estimateEffortHours() {
         return 0;
     }
+
+    public int getVotes() {
+        return this.votes;
+    }
+
+    public String getBusinessJustification() {
+        return this.businessJustification;
+    }
+
 }

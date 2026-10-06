@@ -1,5 +1,4 @@
 package queuedesk.repository;
-import queuedesk.TicketComparator;
 import queuedesk.TicketManager.Ticket;
 import queuedesk.expectionPackage.TicketNotFoundException;
 
