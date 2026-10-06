@@ -3,8 +3,10 @@ package queuedesk.TicketManager;
 import queuedesk.Escalatable;
 
 public class AccessRequestTicket extends Ticket implements Escalatable {
-    String systemName;
-    AccessLevel accessLevel;
+    private String systemName;
+    private AccessLevel accessLevel;
+    private boolean escalated;
+    private int escalationLevel;
 
     public AccessRequestTicket(String title,String description,String p,String requester,String systemName,String a){
         super(title,description,p,requester);
@@ -19,17 +21,27 @@ public class AccessRequestTicket extends Ticket implements Escalatable {
 
     @Override
     public void escalate() {
+        this.escalated=true;
+        this.escalationLevel=0;
         return;
     }
 
     @Override
     public boolean isEscalated() {
-        return false;
+
+        this.escalated=true;
+        return this.escalated;
     }
 
     @Override
     public int escalationLevel() {
-        return 0;
+        return escalationLevel;
     }
 
+    public AccessLevel getAccessLevel() {
+        return this.accessLevel;
+    }
+    public String getSystemName(){
+        return this.systemName;
+    }
 }

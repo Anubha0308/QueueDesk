@@ -1,4 +1,4 @@
-package queuedesk;
+package queuedesk.repository;
 import queuedesk.TicketManager.Ticket;
 
 import java.util.Comparator;

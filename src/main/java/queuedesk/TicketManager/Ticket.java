@@ -7,7 +7,7 @@ import java.util.Set;
 
 public abstract class Ticket implements Comparable<Ticket>{
 
-    private static int nextId;
+    private static int nextId=0;
     private int id;
     private String description;
     private String title;
@@ -18,9 +18,6 @@ public abstract class Ticket implements Comparable<Ticket>{
     private Optional<String> assignee=null;
     private Set<String> tags;
 
-    {
-        nextId=0;
-    }
     public Ticket(String title,String description,String p,String requester){
         nextId+=1;
         this.id=nextId;

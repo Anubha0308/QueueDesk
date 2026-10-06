@@ -7,6 +7,8 @@ public class BugTicket extends Ticket implements Escalatable {
 
     private Severity severity;
     private String stepsToReproduce;
+    private boolean escalated;
+    private int escalationLevel;
 
     public BugTicket(String title,String description,String p,String requester,String s,String stepsToReproduce){
         super(title,description,p,requester);
@@ -21,24 +23,35 @@ public class BugTicket extends Ticket implements Escalatable {
 
     @Override
     public void escalate(){
+        this.escalated=true;
+        this.escalationLevel=0;
         return;
     }
 
     @Override
     public boolean isEscalated() {
-        return false;
+        return this.escalated;
     }
 
     @Override
     public int escalationLevel(){
-        return 0;
+        return this.escalationLevel;
+    }
+
+    public Severity getSeverity() {
+        return severity;
+    }
+
+    public String getStepsToReproduce() {
+        return stepsToReproduce;
     }
 
     void printTriageBoard(List<Ticket> tickets){
         for(Ticket ticket:tickets){
             this.estimateEffortHours();
             if(ticket instanceof BugTicket){
-                System.out.println(this.escalationLevel());
+                BugTicket bugTicket=(BugTicket) ticket;
+                System.out.println(bugTicket.escalationLevel());
             }
         }
     }
