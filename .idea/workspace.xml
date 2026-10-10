@@ -9,13 +9,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3d0137b0-4277-430d-954b-b69e82b54132" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/queuedesk/TicketComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/queuedesk/repository/TicketComparator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/queuedesk/TicketComparatorFirst.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/queuedesk/repository/TicketComparatorFirst.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/queuedesk/TicketManager/AccessRequestTicket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/queuedesk/TicketManager/AccessRequestTicket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/queuedesk/TicketManager/BugTicket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/queuedesk/TicketManager/BugTicket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/queuedesk/TicketManager/Ticket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/queuedesk/TicketManager/Ticket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/queuedesk/reportGenerator/Generator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/queuedesk/reportGenerator/Generator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/queuedesk/repository/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/queuedesk/repository/Repository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
