@@ -1,5 +1,5 @@
 package queuedesk.TicketManager;
-import queuedesk.Escalatable;
+import queuedesk.interfaces.Escalatable;
 
 import java.util.List;
 

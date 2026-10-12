@@ -1,4 +1,4 @@
-package queuedesk;
+package queuedesk.interfaces;
 
 public interface Escalatable {
     //in interface methods are public and abstract by default

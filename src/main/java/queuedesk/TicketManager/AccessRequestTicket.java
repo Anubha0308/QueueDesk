@@ -1,6 +1,6 @@
 package queuedesk.TicketManager;
 
-import queuedesk.Escalatable;
+import queuedesk.interfaces.Escalatable;
 
 public class AccessRequestTicket extends Ticket implements Escalatable {
     private String systemName;
