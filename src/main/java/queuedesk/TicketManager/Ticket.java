@@ -15,7 +15,7 @@ public abstract class Ticket implements Comparable<Ticket>{
     private Status status=Status.OPEN;//sabko ye value mil jayegi
     private Priority priority;
     private LocalDateTime createdAt;
-    private Optional<String> assignee=null;
+    private Optional<String> assignee= Optional.empty();
     private Set<String> tags;
 
     public Ticket(String title,String description,String p,String requester){
@@ -83,6 +83,8 @@ public abstract class Ticket implements Comparable<Ticket>{
     public void setTags(Set<String> tags) {
         this.tags=Set.of(tags.toArray(new String[0]));
     }
+
+
 
     public long ageInHours(){
         LocalDateTime currentTime= LocalDateTime.now();
