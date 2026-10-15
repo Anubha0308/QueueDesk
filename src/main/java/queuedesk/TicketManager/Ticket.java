@@ -99,10 +99,11 @@ public abstract class Ticket implements Comparable<Ticket>{
 
     @Override
     public int compareTo(Ticket o) {//NATURAL ORDERING OF TICKET OBJECTS-this is automatically used by PrioirtyQueue when no explicit is given
-        if(this.priority.ordinal()!=o.priority.ordinal()) {
+        if (this.priority.ordinal() != o.priority.ordinal()) {
             return Integer.compare(o.priority.ordinal(), this.priority.ordinal());
         }
         return this.createdAt.compareTo(o.createdAt);//return >0 <0 and 0 if same no breaking of code
-    }
+    } //Bug ticket , feature ticket and access request ticket can use this and can also override
+
 
 }
