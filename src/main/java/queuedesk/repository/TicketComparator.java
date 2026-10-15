@@ -11,7 +11,7 @@ public class TicketComparator {//understand these comparator and how they relate
    public static final Comparator<Ticket> ticketComparatorFirst = Comparator.comparing(Ticket:: getPriorityOrdinal).reversed()
            .thenComparing(Ticket:: getCreatedAt);
 
-   public static final Comparator<Ticket> ticketComparator =
+   public static final Comparator<Ticket> ticketComparatorSecond =
            Comparator.comparing(Ticket::getStatusOrdinal)
                    .thenComparing(
                            Comparator.comparingLong(Ticket::ageInHours).reversed()

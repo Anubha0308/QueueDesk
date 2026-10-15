@@ -4,6 +4,7 @@ import queuedesk.TicketManager.Ticket;
 import java.util.Comparator;
 
 public class TicketComparatorFirst implements Comparator<Ticket>{
+    //use-case specific
     @Override
     public int compare(Ticket o1, Ticket o2) {
         if(o1.getPriorityOrdinal() == o2.getPriorityOrdinal()){
