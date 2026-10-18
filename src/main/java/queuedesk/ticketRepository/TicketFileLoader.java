@@ -1,4 +1,4 @@
-package queuedesk.repository;
+package queuedesk.ticketRepository;
 import queuedesk.expectionPackage.InvalidTicketDataException;
 import queuedesk.TicketManager.BugTicket;
 import queuedesk.TicketManager.Priority;

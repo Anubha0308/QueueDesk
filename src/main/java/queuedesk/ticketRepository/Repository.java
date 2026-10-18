@@ -1,4 +1,4 @@
-package queuedesk.repository;
+package queuedesk.ticketRepository;
 import queuedesk.TicketManager.Ticket;
 import queuedesk.expectionPackage.TicketNotFoundException;
 
@@ -6,11 +6,12 @@ import java.util.*;
 
 public class Repository<T extends Ticket> {
     private List<T> list = new ArrayList<>();
+    //repository has a list of type subclasses of class Ticket
     public void add(T item){
         list.add(item);
     }
     public List<T> getAll(){
-        List<T> newList = new ArrayList<T>(list);
+        List<T> newList = new ArrayList<T>(list);//this creates a copy of list
         return newList;
     }
 
