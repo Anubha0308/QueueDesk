@@ -1,4 +1,4 @@
-package queuedesk.repository;
+package queuedesk.ticketRepository;
 
 import queuedesk.TicketManager.Ticket;
 

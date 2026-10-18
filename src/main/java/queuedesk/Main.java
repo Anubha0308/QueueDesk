@@ -1,6 +1,8 @@
 package queuedesk;
+import queuedesk.TicketManager.BugTicket;
 import queuedesk.TicketManager.Ticket;
-import queuedesk.repository.TicketFileLoader;
+import queuedesk.ticketRepository.Repository;
+import queuedesk.ticketRepository.TicketFileLoader;
 
 import java.util.List;
 import java.util.Scanner;
@@ -49,20 +51,24 @@ public class Main {
 
         //all the three classes extend the ticket class and
         //bugticket and accessRequestTicket implements escalatable also
-        String path="src/main/java/queuedesk/tickets.txt";
-        try{
-            List<Ticket> tickets = TicketFileLoader.load(path);
-            for(Ticket ticket:tickets){
-                System.out.println(ticket.getTitle());
-                System.out.println(ticket.getDescription());
-                System.out.println(ticket.getPriority());
-                System.out.println(ticket.getRequester());
-                System.out.println(ticket.estimateEffortHours());
-            }
-        }
-        catch(Exception e){
-            System.out.println(e.getMessage());
-        }
+//        String path="src/main/java/queuedesk/tickets.txt";
+//        try{
+//            List<Ticket> tickets = TicketFileLoader.load(path);
+//            for(Ticket ticket:tickets){
+//                System.out.println(ticket.getTitle());
+//                System.out.println(ticket.getDescription());
+//                System.out.println(ticket.getPriority());
+//                System.out.println(ticket.getRequester());
+//                System.out.println(ticket.estimateEffortHours());
+//            }
+//        }
+//        catch(Exception e){
+//            System.out.println(e.getMessage());
+//        }
+        //repository is common for all three subclasses - rn considering this
+        Repository repository = new Repository();
+        repository.add(new BugTicket("Bug1","Description1","HIGH","Requester1","CRITICAL","Steps1"));
+        
         return;
     }
 }
