@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3d0137b0-4277-430d-954b-b69e82b54132" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/queuedesk/TicketManager/Ticket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/queuedesk/analytics/TicketAnalytics.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/queuedesk/ticketRepository/Repository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/queuedesk/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/queuedesk/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,7 +22,6 @@
   &quot;associatedIndex&quot;: 8
 }</component>
   <component name="ProjectId" id="3JN6xzfNoBCTZlNTsMIslbbN5Lm" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -30,7 +31,7 @@
     "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "task1",
+    "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
     "onboarding.tips.debug.path": "C:/Users/anubh/myapp/prelearn/QueueDesk/src/main/java/org/example/Main.java"
   }

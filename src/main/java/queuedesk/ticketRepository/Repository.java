@@ -1,0 +1,60 @@
+package queuedesk.ticketRepository;
+import queuedesk.TicketManager.Ticket;
+import queuedesk.expectionPackage.TicketNotFoundException;
+
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class Repository<T extends Ticket> {
+    private List<T> list = new ArrayList<>();
+    //repository has a list of type subclasses of class Ticket
+    public void add(T item){
+        list.add(item);
+    }
+    public List<T> getAll(){
+        List<T> newList = new ArrayList<T>(list);//this creates a copy of list
+        return newList;
+    }
+
+    //now wherever we are calling this method we need to catch this exception in catch block there
+    public T FindById(int id) throws TicketNotFoundException {
+        for(T item:list) {
+            if (item.getID() == id) {
+                return item;
+            }
+        }
+        throw new TicketNotFoundException("Ticket with ID " + id + " not found.");
+    }
+    public Map<String, List<T>> groupByAssignee(){
+//        Map<String, List<T>> map = new HashMap<>();
+//        for(T item: list){
+//            String assignee = item.getAssignee();
+//            if(!map.containsKey(assignee)){
+//                map.put(assignee, new ArrayList<>());
+//            }
+//            map.get(assignee).add(item);
+//        }
+        Map<String, List<T>> map;
+        map = list.stream()
+                .collect(Collectors.groupingBy(Ticket:: getAssignee, Collectors.toList()));
+        return map;
+    }
+
+    public static PriorityQueue<Ticket> naturalQueue = new PriorityQueue<>();//this internally uses compareTo implementation of Ticket
+    public static PriorityQueue<Ticket> ticketPriorityQueue = new PriorityQueue<>(TicketComparator.ticketComparatorFirst);
+
+    public static <T extends Ticket> T oldest(List<T> tickets){
+        //may be jo sabse purana ticket ho usko return karna
+        int size=tickets.size();
+        if(size==0){
+            return null;
+        }
+        T oldestTicket=tickets.getFirst();//get(0) is replaced with getFirst()
+        for(T ticket: tickets){
+            if(ticket.getCreatedAt().isBefore(oldestTicket.getCreatedAt())){
+                oldestTicket=ticket;
+            }
+        }
+        return oldestTicket;
+    }
+}
