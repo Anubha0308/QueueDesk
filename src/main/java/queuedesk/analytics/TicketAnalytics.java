@@ -56,5 +56,24 @@ public class TicketAnalytics {
         return oldestTicket;
     }
 
+    public String tagLine(List<Ticket> tickets) {
+        if(tickets.isEmpty()) {
+            return "No tickets available.";
+        }
+
+        Map<String, Long> tagCountMap = tickets.stream()
+                .flatMap(ticket -> ticket.getTags().stream())
+                .collect(Collectors.groupingBy(tag -> tag, Collectors.counting()));
+
+        //finding the most common tag here
+        //entrySet() returns a set of key-value pairs from the map
+        //set of Map.Entry<K, V> objects idhar par Map.Entry<String, Long> hai
+        String mostCommonTag = tagCountMap.entrySet().stream()
+                .max(Map.Entry.comparingByValue())
+                .map(Map.Entry::getKey)//Map.Entry ka object aaya to usko key se map kara
+                .orElse("No tags available.");
+
+        return "Most common tag: " + mostCommonTag;
+    }
 
 }

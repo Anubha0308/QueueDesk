@@ -66,9 +66,9 @@ public class Main {
 //            System.out.println(e.getMessage());
 //        }
         //repository is common for all three subclasses - rn considering this
-        Repository repository = new Repository();
-        repository.add(new BugTicket("Bug1","Description1","HIGH","Requester1","CRITICAL","Steps1"));
-        
+//        Repository repository = new Repository();
+//        repository.add(new BugTicket("Bug1","Description1","HIGH","Requester1","CRITICAL","Steps1"));
+//
         return;
     }
 }
