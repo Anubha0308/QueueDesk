@@ -7,6 +7,8 @@ import queuedesk.ticketRepository.TicketFileLoader;
 import java.util.List;
 import java.util.Scanner;
 
+import static queuedesk.configuration.JacksonConfig.createObjectMapper;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 
@@ -48,6 +50,9 @@ public class Main {
         numberOfCustomers=sc.nextInt();
         simulatorResult result = queueNumberSimulator(initialTicketNumber,numberOfCustomers);
         result.printResult();
+
+        //once we have to create mapper
+        createObjectMapper();
 
         //all the three classes extend the ticket class and
         //bugticket and accessRequestTicket implements escalatable also
