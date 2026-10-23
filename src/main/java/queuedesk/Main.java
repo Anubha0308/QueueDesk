@@ -52,7 +52,7 @@ public class Main {
         result.printResult();
 
         //once we have to create mapper
-        createObjectMapper();
+
 
         //all the three classes extend the ticket class and
         //bugticket and accessRequestTicket implements escalatable also
