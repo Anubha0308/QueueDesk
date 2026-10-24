@@ -1,8 +1,8 @@
 QueueDesk is the internal ticketing tool for a fictional IT helpdesk: staff log bugs, feature requests, and access requests; the tool triages them by priority and age, and someone has to work through the queue.
 
 Tools and Technologies :
-Java
-Maven and Dependencies 
-Intellij IDEA 
-Git Control
-GitHub Copilot agent
+* Java
+* Maven and Dependencies 
+* Intellij IDEA 
+* Git Control
+* GitHub Copilot agent
