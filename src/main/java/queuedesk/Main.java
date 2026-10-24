@@ -1,13 +1,11 @@
 package queuedesk;
-import queuedesk.TicketManager.BugTicket;
+
 import queuedesk.TicketManager.Ticket;
+import queuedesk.TicketManager.TicketFileLoader;
 import queuedesk.ticketRepository.Repository;
-import queuedesk.ticketRepository.TicketFileLoader;
 
 import java.util.List;
 import java.util.Scanner;
-
-import static queuedesk.configuration.JacksonConfig.createObjectMapper;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -56,24 +54,28 @@ public class Main {
 
         //all the three classes extend the ticket class and
         //bugticket and accessRequestTicket implements escalatable also
-//        String path="src/main/java/queuedesk/tickets.txt";
-//        try{
-//            List<Ticket> tickets = TicketFileLoader.load(path);
-//            for(Ticket ticket:tickets){
-//                System.out.println(ticket.getTitle());
-//                System.out.println(ticket.getDescription());
-//                System.out.println(ticket.getPriority());
-//                System.out.println(ticket.getRequester());
-//                System.out.println(ticket.estimateEffortHours());
-//            }
-//        }
-//        catch(Exception e){
-//            System.out.println(e.getMessage());
-//        }
+        List<Ticket> tickets = List.of();//rn empty list
+        String path="src/main/java/queuedesk/tickets.txt";
+        try{
+
+            tickets = TicketFileLoader.load(path);
+            for(Ticket ticket:tickets){
+                System.out.println(ticket.getID());
+                System.out.println(ticket.getTitle());
+                System.out.println(ticket.getDescription());
+            }
+        }
+        catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+        //we may use this tickets list to create a repository and then to generate a report
         //repository is common for all three subclasses - rn considering this
-//        Repository repository = new Repository();
-//        repository.add(new BugTicket("Bug1","Description1","HIGH","Requester1","CRITICAL","Steps1"));
-//
+        Repository repository = new Repository();
+        for(Ticket ticket : tickets) {
+            repository.add(ticket);//the list in repository is private
+        }
+        //repository is the store
+        //how do we generate report , on what basis we generate report
         return;
     }
 }

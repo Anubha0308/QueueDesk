@@ -1,1 +1,21 @@
 BUG | firstbugticket | this is first bug ticket | LOW | anubha sharma | LOW | these are the steps to reproduce the bug
+BUG | login failure | users cannot log in with valid credentials | HIGH | rahul mehta | HIGH | clear browser cache, open the login page, enter valid credentials, and submit
+BUG | broken search | search returns no results for existing tickets | MEDIUM | priya singh | MEDIUM | open ticket search, enter a known ticket title, and click search
+BUG | payment timeout | payment requests time out after submission | CRITICAL | amit kumar | HIGH | add an item, proceed to checkout, submit payment, and wait for the response
+BUG | missing avatar | user avatars are not displayed on the profile page | LOW | neha joshi | LOW | sign in, open the profile page, and refresh the browser
+BUG | export crash | exporting tickets closes the application unexpectedly | HIGH | vikram shah | HIGH | filter the ticket list, select export, and choose CSV format
+BUG | stale status | closed tickets continue to appear as open | MEDIUM | simran kaur | MEDIUM | close a ticket, return to the list, and apply the open status filter
+FEATURE_REQUEST | dark mode | provide a dark theme for the dashboard | MEDIUM | rohan verma | 18 | users can work comfortably in low-light environments
+FEATURE_REQUEST | bulk assignment | allow managers to assign several tickets at once | HIGH | kavya nair | 27 | bulk assignment will reduce repetitive manager actions
+FEATURE_REQUEST | email alerts | send an email when a ticket status changes | MEDIUM | arjun reddy | 34 | requesters need timely updates without checking the dashboard
+FEATURE_REQUEST | saved filters | let users save frequently used ticket filters | LOW | meera patel | 12 | saved filters make recurring support workflows faster
+FEATURE_REQUEST | ticket templates | provide templates for common support requests | HIGH | dev malhotra | 22 | templates will improve consistency and reduce data entry
+FEATURE_REQUEST | audit history | show a complete history of ticket changes | CRITICAL | pooja iyer | 41 | an audit trail supports accountability and compliance reviews
+FEATURE_REQUEST | mobile layout | optimize the dashboard for mobile devices | MEDIUM | aditya roy | 29 | support staff need access while away from their desks
+ACCESS_REQUEST | production database | request access to the production database | CRITICAL | nikhil gupta | ADMIN | database administration is required for the approved migration
+ACCESS_REQUEST | analytics dashboard | request access to the analytics dashboard | MEDIUM | tara sen | VIEWER | read-only access is needed to review weekly reports
+ACCESS_REQUEST | source repository | request access to the source code repository | HIGH | yash kapoor | EDITOR | the developer must submit and review implementation changes
+ACCESS_REQUEST | staging server | request access to the staging server | HIGH | isha bansal | ADMIN | deployment testing requires administrative staging access
+ACCESS_REQUEST | design workspace | request access to the shared design workspace | LOW | sanjay das | EDITOR | the designer needs to update approved interface assets
+ACCESS_REQUEST | customer portal | request access to the customer support portal | MEDIUM | riya choudhary | VIEWER | the support agent needs to inspect customer cases
+ACCESS_REQUEST | documentation site | request access to the internal documentation site | LOW | mohit agarwal | GUEST | temporary guest access is sufficient for reviewing procedures
