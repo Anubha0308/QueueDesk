@@ -70,7 +70,7 @@ public class Main {
         }
         //we may use this tickets list to create a repository and then to generate a report
         //repository is common for all three subclasses - rn considering this
-        Repository repository = new Repository();
+        Repository<Ticket> repository = new Repository<Ticket>(); //earlier did not mention the Ticket because this repository is generic
         for(Ticket ticket : tickets) {
             repository.add(ticket);//the list in repository is private
         }

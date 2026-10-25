@@ -3,12 +3,13 @@ package queuedesk.TicketManager;
 import queuedesk.interfaces.Escalatable;
 
 public class AccessRequestTicket extends Ticket implements Escalatable {
-    private String systemName;
+
     private AccessLevel accessLevel;
+    private String systemName;
     private boolean escalated;
     private int escalationLevel;
 
-    public AccessRequestTicket(String title,String description,String p,String requester,String systemName,String a){
+    public AccessRequestTicket(String title,String description,String p,String requester,String a,String systemName){
         super(title,description,p,requester);
         this.systemName=systemName;
         this.accessLevel=AccessLevel.valueOf(a);
