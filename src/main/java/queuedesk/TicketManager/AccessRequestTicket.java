@@ -1,19 +1,26 @@
 package queuedesk.TicketManager;
 
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 import queuedesk.interfaces.Escalatable;
 
+@Getter
+@Setter
+@SuperBuilder
+@NoArgsConstructor
+@ToString(callSuper = true)
 public class AccessRequestTicket extends Ticket implements Escalatable {
 
     private AccessLevel accessLevel;
     private String systemName;
+
+    @Setter(lombok.AccessLevel.NONE)
     private boolean escalated;
+
+    @Setter(lombok.AccessLevel.NONE)
     private int escalationLevel;
 
-    public AccessRequestTicket(String title,String description,String p,String requester,String a,String systemName){
-        super(title,description,p,requester);
-        this.systemName=systemName;
-        this.accessLevel=AccessLevel.valueOf(a);
-    }
+
 
     @Override
     public double estimateEffortHours() {
@@ -29,8 +36,6 @@ public class AccessRequestTicket extends Ticket implements Escalatable {
 
     @Override
     public boolean isEscalated() {
-
-        this.escalated=true;
         return this.escalated;
     }
 
@@ -39,10 +44,4 @@ public class AccessRequestTicket extends Ticket implements Escalatable {
         return escalationLevel;
     }
 
-    public AccessLevel getAccessLevel() {
-        return this.accessLevel;
-    }
-    public String getSystemName(){
-        return this.systemName;
-    }
 }

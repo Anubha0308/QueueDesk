@@ -15,6 +15,9 @@ import queuedesk.TicketManager.FeatureRequestTicket;
         @JsonSubTypes.Type(value = FeatureRequestTicket.class, name = "featurerequestticket"),
         @JsonSubTypes.Type(value = AccessRequestTicket.class, name = "accessrequestticket")
 })
+
+//this is for handling the polymorphic serialization and deserialization of Ticket objects in JSON format.
+//It allows Jackson to correctly identify and instantiate the appropriate subclass of Ticket based on the "type" property in the JSON data.
 public abstract class TicketMixin {
 
 }

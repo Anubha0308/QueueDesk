@@ -1,26 +1,35 @@
 package queuedesk.TicketManager;
 
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
+
+@Getter
+@Setter
+@SuperBuilder
+@NoArgsConstructor
+@ToString(callSuper = true)
 public class FeatureRequestTicket extends Ticket {
+
     int votes;
     String businessJustification;
 
-    public FeatureRequestTicket(String title,String description,String p,String requester,int votes,String businessJustification){
-        super(title,description,p,requester);
-        this.votes = votes;
-        this.businessJustification = businessJustification;
-    }
 
     @Override
     public double estimateEffortHours() {
         return 0;
     }
 
-    public int getVotes() {
-        return this.votes;
-    }
-
     public String getBusinessJustification() {
-        return this.businessJustification;
+        if(this.businessJustification==null || this.businessJustification.isBlank()){
+            return "No business justification provided";
+        }
+        else{
+            return this.businessJustification;
+        }
     }
 
 }

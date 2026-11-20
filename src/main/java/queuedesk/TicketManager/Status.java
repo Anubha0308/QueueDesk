@@ -6,3 +6,6 @@ public enum Status {
     RESOLVED,
     CLOSED
 }
+//blocked
+//resolved - then after review closed
+//verification is performed

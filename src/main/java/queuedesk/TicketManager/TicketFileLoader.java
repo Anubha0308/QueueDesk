@@ -27,6 +27,7 @@ public class TicketFileLoader {
                 }
 
                 String type=parts[0];
+                //switch to switch
                 if(type.equals("BUG")) {
                     try {
                         //below two is the checking

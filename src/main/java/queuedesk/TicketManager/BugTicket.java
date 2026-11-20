@@ -1,20 +1,26 @@
 package queuedesk.TicketManager;
+import lombok.*;
+import lombok.AccessLevel;
+import lombok.experimental.SuperBuilder;
 import queuedesk.interfaces.Escalatable;
 
 import java.util.List;
 
+@Getter
+@Setter
+@SuperBuilder
+@NoArgsConstructor
+@ToString(callSuper = true)
 public class BugTicket extends Ticket implements Escalatable {
 
-    private Severity severity;
-    private String stepsToReproduce;
-    private boolean escalated;
-    private int escalationLevel;
+    @Builder.Default
+    private Severity severity = Severity.LOW;
+    private String stepsToReproduce = null;
 
-    public BugTicket(String title,String description,String p,String requester,String s,String stepsToReproduce){
-        super(title,description,p,requester);
-        this.stepsToReproduce=stepsToReproduce;
-        this.severity=Severity.valueOf(s);
-    }
+    @Setter(AccessLevel.NONE)
+    private boolean escalated;
+    @Setter(AccessLevel.NONE)
+    private int escalationLevel;
 
     public double estimateEffortHours() {
         return 0;
@@ -38,12 +44,13 @@ public class BugTicket extends Ticket implements Escalatable {
         return this.escalationLevel;
     }
 
-    public Severity getSeverity() {
-        return severity;
-    }
-
     public String getStepsToReproduce() {
-        return stepsToReproduce;
+        if(this.stepsToReproduce==null || this.stepsToReproduce.isBlank()){
+            return "No steps provided";
+        }
+        else{
+            return this.stepsToReproduce;
+        }
     }
 
     void printTriageBoard(List<Ticket> tickets){
