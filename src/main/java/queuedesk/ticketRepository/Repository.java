@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 public class Repository<T extends Ticket> {
     private List<T> list = new ArrayList<>();
     //repository has a list of type subclasses of class Ticket
+    //should these methods be made static rather than
     public void add(T item){
         list.add(item);
     }
@@ -19,7 +20,7 @@ public class Repository<T extends Ticket> {
     //now wherever we are calling this method we need to catch this exception in catch block there
     public T FindById(int id) throws TicketNotFoundException {
         for(T item:list) {
-            if (item.getID() == id) {
+            if (item.getId() == id) {
                 return item;
             }
         }

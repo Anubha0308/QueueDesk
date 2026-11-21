@@ -1,6 +1,7 @@
 package queuedesk;
 
 import queuedesk.TicketManager.Ticket;
+import queuedesk.expectionPackage.InvalidTicketDataException;
 import queuedesk.loader.TicketFileLoader;
 import queuedesk.service.TicketService;
 import queuedesk.ticketRepository.Repository;
@@ -61,7 +62,7 @@ public class Main {
 
             tickets = TicketFileLoader.load(path);
             for(Ticket ticket:tickets){
-                System.out.println(ticket.getID());
+                System.out.println(ticket.getId());
                 System.out.println(ticket.getTitle());
                 System.out.println(ticket.getDescription());
             }
@@ -77,12 +78,17 @@ public class Main {
         }
         //repository is the store
         //how do we generate report , on what basis we generate report
-        return;
         //separation of concerns
         TicketService ticketService = new TicketService();
         String pathToTicketsFile = "src/main/java/queuedesk/tickets.txt";
-        ticketService.load(pathToTicketsFile);
-        ticketService.generateReport();
+        try {
+            ticketService.loadFile(pathToTicketsFile);
+        } catch (InvalidTicketDataException e) {
+            System.out.println("Error loading tickets file: " + e.getMessage());
+        }
+        Repository<Ticket> ticketRepository = new Repository<>();
+        ticketService.createRepository(ticketRepository);
 
+        return;
     }
 }
