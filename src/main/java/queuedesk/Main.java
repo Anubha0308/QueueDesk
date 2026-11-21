@@ -1,7 +1,8 @@
 package queuedesk;
 
 import queuedesk.TicketManager.Ticket;
-import queuedesk.TicketManager.TicketFileLoader;
+import queuedesk.loader.TicketFileLoader;
+import queuedesk.service.TicketService;
 import queuedesk.ticketRepository.Repository;
 
 import java.util.List;
@@ -77,5 +78,11 @@ public class Main {
         //repository is the store
         //how do we generate report , on what basis we generate report
         return;
+        //separation of concerns
+        TicketService ticketService = new TicketService();
+        String pathToTicketsFile = "src/main/java/queuedesk/tickets.txt";
+        ticketService.load(pathToTicketsFile);
+        ticketService.generateReport();
+
     }
 }

@@ -1,4 +1,4 @@
-package queuedesk.TicketManager.jsonhandler;
+package queuedesk.ticketjson.jsonhandler;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;

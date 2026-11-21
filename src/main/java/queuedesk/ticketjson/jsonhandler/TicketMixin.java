@@ -1,4 +1,4 @@
-package queuedesk.TicketManager.jsonhandler;
+package queuedesk.ticketjson.jsonhandler;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import queuedesk.TicketManager.AccessRequestTicket;
