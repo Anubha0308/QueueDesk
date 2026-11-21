@@ -29,66 +29,73 @@ public class TicketFileLoader {
 
                 String type=parts[0];
                 //switch to switch
-                if(type.equals("BUG")) {
-                    try {
-                        //below two is the checking
-                        Priority.valueOf(parts[3].toUpperCase());//this will throw Exception if not matches with already defined ones
-                        Severity.valueOf(parts[5].toUpperCase());
+                switch (type) {
+                    case "BUG":
+                        try {
+                            //below two is the checking
+                            Priority.valueOf(parts[3].toUpperCase());//this will throw Exception if not matches with already defined ones
+                            Severity.valueOf(parts[5].toUpperCase());
 
-                        tickets.add(new BugTicket(
-                                parts[1],//title
-                                parts[2],//description
-                                parts[3].toUpperCase(),
-                                parts[4],//requester
-                                parts[5].toUpperCase(),
-                                parts[6]));
-                    } catch (IllegalArgumentException e) {
-                        throw new InvalidTicketDataException(
-                                "Invalid BUG ticket data on line " + lineNumber + ": " + e.getMessage());
-                    }
-                }
-                else if(type.equals("ACCESS_REQUEST")){
-                    try {
-                        //below two is the checking
-                        Priority.valueOf(parts[3].toUpperCase());//this will throw Exception if not matches with already defined ones
-                        AccessLevel.valueOf(parts[5].toUpperCase());
+                            tickets.add(BugTicket.builder()
+                                    .title(parts[1])
+                                    .description(parts[2])
+                                    .priority(Priority.valueOf(parts[3].toUpperCase()))
+                                    .requester(parts[4])
+                                    .severity(Severity.valueOf(parts[5].toUpperCase()))
+                                    .stepsToReproduce(parts[6].isEmpty() ? null : parts[6])
+                                    .build()
+                            );
+                        } catch (IllegalArgumentException e) {
+                            throw new InvalidTicketDataException(
+                                    "Invalid BUG ticket data on line " + lineNumber + ": " + e.getMessage());
+                        }
+                        break;
+                    case "ACCESS_REQUEST":
+                        try {
+                            //below two is the checking
+                            Priority.valueOf(parts[3].toUpperCase());//this will throw Exception if not matches with already defined ones
+                            AccessLevel.valueOf(parts[5].toUpperCase());
 
-                        tickets.add(new AccessRequestTicket(
-                                parts[1],//title
-                                parts[2],//description
-                                parts[3].toUpperCase(),
-                                parts[4],//requester
-                                parts[5].toUpperCase(),
-                                parts[6]));
-                    } catch (IllegalArgumentException e) {
-                        throw new InvalidTicketDataException(
-                                "Invalid ACCESS_REQUEST ticket data on line " + lineNumber + ": " + e.getMessage());
-                    }
-                }
-                else if(type.equals("FEATURE_REQUEST")){
-                    try {
-                        //below two is the checking
-                        Priority.valueOf(parts[3].toUpperCase());//this will throw Exception if not matches with already defined ones
-                        Integer.parseInt(parts[5]);
+                            tickets.add(AccessRequestTicket.builder()
+                                    .title(parts[1])
+                                    .description(parts[2])
+                                    .priority(Priority.valueOf(parts[3].toUpperCase()))
+                                    .requester(parts[4])
+                                    .accessLevel(AccessLevel.valueOf(parts[5].toUpperCase()))
+                                    .systemName(parts[6].isEmpty() ? null : parts[6])
+                                    .build()
+                            );
 
-                        tickets.add(new FeatureRequestTicket(
-                                parts[1],//title
-                                parts[2],//description
-                                parts[3].toUpperCase(),
-                                parts[4],//requester
-                                Integer.parseInt(parts[5]),
-                                parts[6]));
-                    } catch (NumberFormatException e) {
-                        throw new InvalidTicketDataException(
-                                "Invalid FEATURE_REQUEST ticket data on line " + lineNumber + ": " + e.getMessage());
-                    }
-                    catch (IllegalArgumentException e) {
-                        throw new InvalidTicketDataException(
-                                "Invalid FEATURE_REQUEST ticket data on line " + lineNumber + ": " + e.getMessage());
-                    }
-                }
-                else{
-                    throw new InvalidTicketDataException("Ticket object cannot be created for this type. "+type +"on line "+lineNumber);
+
+                        } catch (IllegalArgumentException e) {
+                            throw new InvalidTicketDataException(
+                                    "Invalid ACCESS_REQUEST ticket data on line " + lineNumber + ": " + e.getMessage());
+                        }
+                        break;
+                    case "FEATURE_REQUEST":
+                        try {
+                            //below two is the checking
+                            Priority.valueOf(parts[3].toUpperCase());//this will throw Exception if not matches with already defined ones
+                            Integer.parseInt(parts[5]);
+
+                            tickets.add(FeatureRequestTicket.builder()
+                                    .title(parts[1])
+                                    .description(parts[2])
+                                    .priority(Priority.valueOf(parts[3].toUpperCase()))
+                                    .requester(parts[4])
+                                    .votes(Integer.parseInt(parts[5]))
+                                    .businessJustification(parts[6].isEmpty() ? null : parts[6])
+                                    .build()
+                            );
+
+
+                        } catch (IllegalArgumentException e) {
+                            throw new InvalidTicketDataException(
+                                    "Invalid FEATURE_REQUEST ticket data on line " + lineNumber + ": " + e.getMessage());
+                        }
+                        break;
+                    default:
+                        throw new InvalidTicketDataException("Invalid ticket type on line " + lineNumber + ": " + type);
                 }
                 lineNumber+=1;
             }
