@@ -5,7 +5,7 @@ import queuedesk.expectionPackage.TicketNotFoundException;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class Repository<T extends Ticket> {
+public class Repository<T extends Ticket> implements TicketSink<T> {
     private List<T> list = new ArrayList<>();
     //repository has a list of type subclasses of class Ticket
     //should these methods be made static rather than

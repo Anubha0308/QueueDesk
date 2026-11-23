@@ -88,7 +88,6 @@ public class Main {
         }
         Repository<Ticket> ticketRepository = new Repository<>();
         ticketService.createRepository(ticketRepository);
-
         return;
     }
 }

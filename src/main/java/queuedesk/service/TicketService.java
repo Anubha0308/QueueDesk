@@ -3,7 +3,7 @@ package queuedesk.service;
 import queuedesk.TicketManager.Ticket;
 import queuedesk.expectionPackage.InvalidTicketDataException;
 import queuedesk.loader.TicketFileLoader;
-import queuedesk.ticketRepository.Repository;
+import queuedesk.ticketRepository.TicketSink;
 
 import java.util.List;
 
@@ -18,7 +18,10 @@ public class TicketService {
     //now create a repository from the tickets obtained above
     //repository me we have private list of ticket ke objects
     //this should not be like this object to pass hona chahiye
-    public void createRepository(Repository<Ticket> ticketRepository) {
+    public void createRepository(TicketSink<Ticket> ticketRepository) {
+        if(tickets==null){
+            throw new IllegalStateException("Tickets have not been loaded. Please load tickets before creating a repository.");
+        }
         for (Ticket ticket : tickets) {
             ticketRepository.add(ticket);
         }

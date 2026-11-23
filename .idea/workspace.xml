@@ -9,9 +9,14 @@
   <component name="ChangeListManager">
     <list default="true" id="3d0137b0-4277-430d-954b-b69e82b54132" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/queuedesk/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/queuedesk/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/queuedesk/TicketManager/jsonhandler/TicketJsonStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/queuedesk/ticketjson/jsonhandler/TicketJsonStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/queuedesk/TicketManager/jsonhandler/TicketMixin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/queuedesk/ticketjson/jsonhandler/TicketMixin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/queuedesk/service/TicketService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/queuedesk/service/TicketService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/queuedesk/ticketRepository/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/queuedesk/ticketRepository/Repository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/queuedesk/TicketManager/TicketTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/queuedesk/TicketManager/TicketTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/queuedesk/TicketManager/jsonhandler/TicketJsonStoreTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/queuedesk/TicketManager/jsonhandler/TicketJsonStoreTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +64,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
+    "JUnit.TicketServiceTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
@@ -77,7 +83,7 @@
     "settings.editor.selected.configurable": "editor.preferences.tabs"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.TicketServiceTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="queuedesk.Main" />
       <module name="QueueDesk" />
@@ -91,8 +97,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TicketServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="QueueDesk" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="queuedesk.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="queuedesk.service" />
+      <option name="MAIN_CLASS_NAME" value="queuedesk.service.TicketServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TicketServiceTest" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
