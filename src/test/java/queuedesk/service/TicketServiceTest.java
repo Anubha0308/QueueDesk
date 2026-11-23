@@ -37,13 +37,14 @@ class TicketServiceTest {
 
     @BeforeEach
     void setUp() {
-        // A fresh service for every test prevents tests from sharing mutable ticket state.
+        //each test should start with a fresh TicketService object
+        //this prevents one test from affecting another through previously loaded tickets or other mutable state
         ticketService = new TicketService();
     }
 
     @Test
     void loadFile_shouldLoadTicketsFromARealFile() throws Exception {
-        // Arrange: create a temporary file in the format expected by TicketFileLoader.
+        //this creates a path for a file named tickets.txt inside your temporary directory
         Path ticketFile = tempDirectory.resolve("tickets.txt");
         Files.writeString(ticketFile,
                 "BUG|Login failure|Unable to sign in|HIGH|Asha|HIGH|Open login page\n");
@@ -54,23 +55,22 @@ class TicketServiceTest {
 
     @Test
     void createRepository_shouldAddEveryLoadedTicket() throws Exception {
-        // Arrange: load a real two-line file.
         Path ticketFile = tempDirectory.resolve("tickets.txt");
         Files.writeString(ticketFile,
                 "BUG|First|First description|HIGH|Asha|LOW|Step one\n" +
                 "BUG|Second|Second description|MEDIUM|Ravi|MEDIUM|Step two\n");
         ticketService.loadFile(ticketFile.toString());
 
-        // Act: TicketService adds each loaded ticket to the mock boundary.
+        //TicketService adds each loaded ticket to the mock boundary.
         ticketService.createRepository(ticketSink);
 
-        // Assert: Mockito verifies that both tickets reached the repository boundary.
+        //Mockito verifies that both tickets reached the repository boundary.
         verify(ticketSink, times(2)).add(any(Ticket.class));
     }
 
     @Test
     void createRepository_shouldDoNothingWhenNoTicketsWereLoaded() {
-        // Calling createRepository before loadFile represents the empty initial state.
+        //Calling createRepository before loadFile represents the empty initial state.
         ticketService.createRepository(ticketSink);
 
         verifyNoInteractions(ticketSink);

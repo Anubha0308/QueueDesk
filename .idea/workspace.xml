@@ -9,14 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3d0137b0-4277-430d-954b-b69e82b54132" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/queuedesk/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/queuedesk/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/queuedesk/TicketManager/jsonhandler/TicketJsonStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/queuedesk/ticketjson/jsonhandler/TicketJsonStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/queuedesk/TicketManager/jsonhandler/TicketMixin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/queuedesk/ticketjson/jsonhandler/TicketMixin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/queuedesk/service/TicketService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/queuedesk/service/TicketService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/queuedesk/ticketRepository/Repository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/queuedesk/ticketRepository/Repository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/queuedesk/TicketManager/TicketTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/queuedesk/TicketManager/TicketTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/queuedesk/TicketManager/jsonhandler/TicketJsonStoreTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/queuedesk/TicketManager/jsonhandler/TicketJsonStoreTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/queuedesk/service/TicketServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/queuedesk/service/TicketServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +57,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
+    "JUnit.TicketServiceTest.createRepository_shouldDoNothingWhenNoTicketsWereLoaded.executor": "Debug",
     "JUnit.TicketServiceTest.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -151,6 +145,17 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/queuedesk/service/TicketService.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
