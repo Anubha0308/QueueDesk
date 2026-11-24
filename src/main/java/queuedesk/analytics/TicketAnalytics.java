@@ -6,6 +6,7 @@ import queuedesk.TicketManager.Ticket;
 
 import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class TicketAnalytics {
     //will use the streams in this class to analyze the tickets and return the results
@@ -61,8 +62,11 @@ public class TicketAnalytics {
             return "No tickets available.";
         }
 
+        //but what if below the getTags() returns empty for any ticket then will it throw an exception?
+        //yes it will throw an exception
         Map<String, Long> tagCountMap = tickets.stream()
-                .flatMap(ticket -> ticket.getTags().stream())
+                .flatMap(ticket -> ticket.getTags()==null ?
+                        Stream.empty() : ticket.getTags().stream())
                 .collect(Collectors.groupingBy(tag -> tag, Collectors.counting()));
 
         //finding the most common tag here

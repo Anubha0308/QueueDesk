@@ -18,7 +18,7 @@ public class AccessRequestTicket extends Ticket implements Escalatable {
     private boolean escalated;
 
     @Setter(lombok.AccessLevel.NONE)
-    private int escalationLevel;
+    private int escalationLevel=0;
 
 
 
@@ -30,8 +30,7 @@ public class AccessRequestTicket extends Ticket implements Escalatable {
     @Override
     public void escalate() {
         this.escalated=true;
-        this.escalationLevel=0;
-        return;
+        this.escalationLevel++;
     }
 
     @Override

@@ -33,8 +33,8 @@ public class Main {
         for(int i=1;i<=numberOfCustomers;i++){
             System.out.printf("Now serving ticket %s\n",i);
             served+=1;
-            if(i%5==0) VIP+=1;
-            if(i%10==0) priorityRecheck+=1;
+            if((initialTicketNumber+i)%5==0) VIP+=1;
+            if((initialTicketNumber+i)%10==0) priorityRecheck+=1;
         }
         simulatorResult result= new simulatorResult(served,VIP,priorityRecheck);
         return result;
@@ -52,7 +52,6 @@ public class Main {
         result.printResult();
 
         //once we have to create mapper
-
 
         //all the three classes extend the ticket class and
         //bugticket and accessRequestTicket implements escalatable also

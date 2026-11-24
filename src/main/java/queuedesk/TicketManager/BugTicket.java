@@ -19,8 +19,9 @@ public class BugTicket extends Ticket implements Escalatable {
 
     @Setter(AccessLevel.NONE)
     private boolean escalated;
+
     @Setter(AccessLevel.NONE)
-    private int escalationLevel;
+    private int escalationLevel=0;
 
     public double estimateEffortHours() {
         return 0;
@@ -30,8 +31,7 @@ public class BugTicket extends Ticket implements Escalatable {
     @Override
     public void escalate(){
         this.escalated=true;
-        this.escalationLevel=0;
-        return;
+        this.escalationLevel++;
     }
 
     @Override
