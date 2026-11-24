@@ -6,6 +6,7 @@ import lombok.experimental.SuperBuilder;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
@@ -40,22 +41,31 @@ public abstract class Ticket implements Comparable<Ticket>{
     @Builder.Default
     private LocalDateTime createdAt=LocalDateTime.now();
 
-    //always that the time of ticket creation we do not know the assignee
+    //always at the time of ticket creation we do not know the assignee
     private String assignee = null;//logic wise intially assignee null hi hoga na jab ticket create hoga ig
-    private Set<String> tags = Set.of();//intially empty set of tags
+    @Setter(AccessLevel.NONE)
+    private Set<String> tags = null;//intially empty set of tags
 
     public abstract double estimateEffortHours();
 
-    public void setAssignee(String assignee) {
-        this.assignee = assignee;
+    public void addTag(String tag) {
+        if (this.tags == null) {
+            this.tags = new HashSet<>();
+        }
+        this.tags.add(tag);
     }
 
     public String getAssignee() {
         return (this.assignee == null || this.assignee.isBlank()) ? "Unassigned" : this.assignee;
     }
 
-    public void setTags(Set<String> tags) {
-        this.tags=Set.of(tags.toArray(new String[0]));
+
+
+    public Set<String> getTags() {
+        if(this.tags==null){
+            return new HashSet<>();
+        }
+        return this.tags;
     }
 
     public int getPriorityOrdinal() {
