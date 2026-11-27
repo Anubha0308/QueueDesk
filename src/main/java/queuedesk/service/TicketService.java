@@ -11,14 +11,14 @@ public class TicketService {
     // This class is responsible for managing tickets, including creating, updating, and retrieving tickets from the repository
 
     // Method to load tickets from a file
-    private List<Ticket> tickets;
-    public void loadFile(String pathToTicketsFile) throws InvalidTicketDataException {
-        tickets = TicketFileLoader.load(pathToTicketsFile);
+
+    public List<Ticket> loadFile(String pathToTicketsFile) throws InvalidTicketDataException {
+        return TicketFileLoader.load(pathToTicketsFile);
     }
     //now create a repository from the tickets obtained above
     //repository me we have private list of ticket ke objects
     //this should not be like this object to pass hona chahiye
-    public void createRepository(TicketSink<Ticket> ticketRepository) {
+    public void createRepository(TicketSink<Ticket> ticketRepository,List<Ticket> tickets) {
         if(tickets==null){
             throw new IllegalStateException("Tickets have not been loaded. Please load tickets before creating a repository.");
         }

@@ -55,38 +55,43 @@ public class Main {
 
         //all the three classes extend the ticket class and
         //bugticket and accessRequestTicket implements escalatable also
-        List<Ticket> tickets = List.of();//rn empty list
-        String path="src/main/java/queuedesk/tickets.txt";
-        try{
-
-            tickets = TicketFileLoader.load(path);
-            for(Ticket ticket:tickets){
-                System.out.println(ticket.getId());
-                System.out.println(ticket.getTitle());
-                System.out.println(ticket.getDescription());
-            }
-        }
-        catch(Exception e){
-            System.out.println(e.getMessage());
-        }
+//        List<Ticket> tickets = List.of();//rn empty list
+//        String path="src/main/java/queuedesk/tickets.txt";
+//        try{
+//
+//            tickets = TicketFileLoader.load(path);
+//            for(Ticket ticket:tickets){
+//                System.out.println(ticket.getId());
+//                System.out.println(ticket.getTitle());
+//                System.out.println(ticket.getDescription());
+//            }
+//        }
+//        catch(Exception e){
+//            System.out.println(e.getMessage());
+//        }
         //we may use this tickets list to create a repository and then to generate a report
         //repository is common for all three subclasses - rn considering this
-        Repository<Ticket> repository = new Repository<Ticket>(); //earlier did not mention the Ticket because this repository is generic
-        for(Ticket ticket : tickets) {
-            repository.add(ticket);//the list in repository is private
-        }
+//        Repository<Ticket> repository = new Repository<Ticket>(); //earlier did not mention the Ticket because this repository is generic
+//        for(Ticket ticket : tickets) {
+//            repository.add(ticket);//the list in repository is private
+//        }
         //repository is the store
         //how do we generate report , on what basis we generate report
         //separation of concerns
+        List<Ticket> tickets = null;
         TicketService ticketService = new TicketService();
         String pathToTicketsFile = "src/main/java/queuedesk/tickets.txt";
         try {
-            ticketService.loadFile(pathToTicketsFile);
+            tickets = ticketService.loadFile(pathToTicketsFile);
         } catch (InvalidTicketDataException e) {
             System.out.println("Error loading tickets file: " + e.getMessage());
         }
         Repository<Ticket> ticketRepository = new Repository<>();
-        ticketService.createRepository(ticketRepository);
+        if(tickets == null) {
+            System.out.println("Error: No tickets loaded.");
+        }
+        else ticketService.createRepository(ticketRepository, tickets);
+
         return;
     }
 }
