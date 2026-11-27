@@ -30,6 +30,7 @@ public abstract class Ticket implements Comparable<Ticket>{
     private String description;
     private String requester;
 
+    //to give the default values apart from what java gives like null for enum
     @Builder.Default
     private Status status=Status.OPEN;//sabko ye value mil jayegi
     //when the status of ticket is changed
